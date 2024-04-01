@@ -38,6 +38,10 @@ export class EditCategoryComponent implements OnInit, OnDestroy{
     });
   }
 
+  onFormSubmit(): void{
+    console.log(this.category);
+  }
+
   ngOnDestroy(): void {
     this.paramsSubscription?.unsubscribe();
   }
