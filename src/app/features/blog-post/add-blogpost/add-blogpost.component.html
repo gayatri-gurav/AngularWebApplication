@@ -2,48 +2,54 @@
 
     <h1 class="mt-3">Add BlogPost</h1>
 
-    <form>
+    <form #form="ngForm" (ngSubmit)="onFormSubmit()">
         <div class="mt-2 mb-5">
             <div class="mt-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" id="title" name="title" class="form-control">
+                <input type="text" id="title" name="title" class="form-control" [(ngModel)]="model.title">
             </div>
 
             <div class="mt-3">
                 <label for="UrlHandle" class="form-label">Url Handle</label>
-                <input type="text" id="UrlHandle" name="UrlHandle" class="form-control">
+                <input type="text" id="UrlHandle" name="UrlHandle" class="form-control" [(ngModel)]="model.urlHandle">
             </div>
 
             <div class="mt-3">
                 <label for="ShortDescription" class="form-label">Short Description</label>
-                <input type="text" id="ShortDescription" name="ShortDescription" class="form-control">
+                <input type="text" id="ShortDescription" name="ShortDescription" class="form-control"
+                    [(ngModel)]="model.shortDescription">
             </div>
 
             <div class="mt-3">
                 <label for="Content" class="form-label">Content</label>
-                <textarea name="content" id="Content" name="Content" class="form-control"></textarea>
+                <textarea name="content" id="Content" name="Content" class="form-control"
+                    [(ngModel)]="model.author"></textarea>
             </div>
 
             <div class="mt-3">
                 <label for="FeaturedImageUrl" class="form-label">Featured Image Url</label>
-                <input type="text" id="FeaturedImageUrl" name="FeaturedImageUrl" class="form-control">
+                <input type="text" id="FeaturedImageUrl" name="FeaturedImageUrl" class="form-control"
+                    [(ngModel)]="model.featuredImageUrl">
             </div>
 
             <div class="mt-3">
                 <label for="PublishedDate" class="form-label">Published Date</label>
-                <input type="date" id="PublishedDate" name="PublishedDate" class="form-control">
+                <input type="date" id="PublishedDate" name="PublishedDate" class="form-control"
+                    value="{{model.publishedDate}}" [ngModel]="model.publishedDate | date: 'yyyy-MM-dd'"
+                    (ngModelChange)="model.publishedDate = $event">
             </div>
 
-            
+
             <div class="mt-3">
                 <label for="Author" class="form-label">Author</label>
-                <input type="text" id="Author" name="Author" class="form-control">
+                <input type="text" id="Author" name="Author" class="form-control" [(ngModel)]="model.author">
             </div>
 
             <div class="form-check mt-3">
-                <input class="form-check-input" type="checkbox" id="isVisible">
+                <input class="form-check-input" type="checkbox" id="isVisible" [(ngModel)]="model.isVisible"
+                    name="isVisible">
                 <label class="form-check-label" for="isVisible">
-                  Is Visible
+                    Is Visible
                 </label>
             </div>
 
